@@ -17,7 +17,8 @@ class m200904_121949_create_comment_table extends Migration
             'text' => $this->string(),
             'user_id' => $this->integer(),
             'article_id' => $this->integer(),
-            'status' => $this->integer()
+            'status' => $this->integer(),
+            'date' => $this->date()
         ]);
 
         
