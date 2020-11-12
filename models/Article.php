@@ -18,7 +18,6 @@ use yii\data\Pagination;
  * @property int|null $viewed
  * @property int|null $user_id
  * @property int|null $status
- * @property int|null $category_id
  */
 class Article extends \yii\db\ActiveRecord
 {

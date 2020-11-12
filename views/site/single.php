@@ -14,18 +14,15 @@
                     </div>
                     <div class="post-content">
                         <header class="entry-header text-center text-uppercase">
-                            <h6><a href="<?= Url::toRoute(['site/category', 'id' => $article->category->id]) ?>"><?= $article->category->title ?></a></h6>
+                            
 
                             <h1 class="entry-title"><a href="#"><?= $article->title ?></a></h1>
 
 
                         </header>
                         <div class="entry-content">
-                            <?= $article->content ?>                           
-                        </div>
-                        <div class="decoration">
-                            <a href="#" class="btn btn-default">Decoration</a>
-                            <a href="#" class="btn btn-default">Decoration</a>
+                            <?= $article->content ?> 
+                            <br><br>                         
                         </div>
 
                         <div class="social-share">
@@ -42,22 +39,12 @@
                         </div>
                     </div>
                 </article>
-                
-                
-                
-                <?=
-                    $this->render('/partials/comment.php', [
-                        'article' => $article,
-                        'comments' => $comments,
-                        'commentForm' => $commentForm
-                    ]);
-                ?>
+
             </div>
             <?= 
                 $this->render('/partials/sidebar.php', [
                     'popular' => $popular,
-                    'recent' => $recent,
-                    'categories' => $categories
+                    'recent' => $recent
                 ]);
             ?>
         </div>

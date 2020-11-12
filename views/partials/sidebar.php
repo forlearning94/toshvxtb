@@ -4,17 +4,6 @@
 
 <div class="col-md-4" data-sticky_column>
     <div class="primary-sidebar">
-        <aside class="widget border pos-padding">
-            <h3 class="widget-title text-uppercase text-center">Shahar va Tumanlar</h3>
-            <ul>
-                <?php foreach($categories as $category): ?>
-                    <li>
-                        <a href="<?= Url::toRoute(['site/category', 'id' => $category->id]) ?>"><?= $category->title ?></a>
-                        <span class="post-count pull-right"> (<?= $category->getArticles()->count();?>)</span>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </aside>
         <aside class="widget">
             <h3 class="widget-title text-uppercase text-center">Ko'p o'qilganlar</h3>
             <?php foreach($popular as $article): ?>

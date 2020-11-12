@@ -8,10 +8,8 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\Article;
-use app\models\Category;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\CommentForm;
 use yii\data\Pagination;
 
 class SiteController extends Controller
@@ -70,14 +68,12 @@ class SiteController extends Controller
 
         $popular = Article::getPopular();
         $recent = Article::getRecent();
-        $categories = Category::getAll(); 
 
         return $this->render('index', [
             'articles' => $data['articles'],
             'pagination' => $data['pagination'],
             'popular' => $popular,
-            'recent' => $recent,
-            'categories' => $categories
+            'recent' => $recent
         ]);
     }
 
@@ -90,7 +86,6 @@ class SiteController extends Controller
 
 
         $article->viewedCounter();
-
 
         return $this->render('single', [
             'article' => $article,

@@ -110,74 +110,18 @@
                 <aside class="footer-widget">
                     <h3 class="widget-title text-uppercase">Testimonials</h3>
 
-                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                        <!--Indicator-->
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <div class="single-review">
-                                    <div class="review-text">
-                                        <p>Lorem ipsum dolor sit amet, conssadipscing elitr, sed diam nonumy eirmod
-                                            tempvidunt ut labore et dolore magna aliquyam erat,sed diam voluptua. At
-                                            vero eos et accusam justo duo dolores et ea rebum.gubergren no sea takimata
-                                            magna aliquyam eratma</p>
-                                    </div>
-                                    <div class="author-id">
-                                        <img src="<?= Yii::getAlias('@web') . '/public/images/author.png' ?>" alt="">
-
-                                        <div class="author-text">
-                                            <h4>Anthony DiPrizio</h4>
-
-                                            <h4>CEO</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="single-review">
-                                    <div class="review-text">
-                                        <p>Lorem ipsum dolor sit amet, conssadipscing elitr, sed diam nonumy eirmod
-                                            tempvidunt ut labore et dolore magna aliquyam erat,sed diam voluptua. At
-                                            vero eos et accusam justo duo dolores et ea rebum.gubergren no sea takimata
-                                            magna aliquyam eratma</p>
-                                    </div>
-                                    <div class="author-id">
-                                        <img src="<?= Yii::getAlias('@web') . '/public/images/author.png' ?>" alt="">
-
-                                        <div class="author-text">
-                                            <h4>Anthony DiPrizio</h4>
-
-                                            <h4>CEO</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="single-review">
-                                    <div class="review-text">
-                                        <p>Lorem ipsum dolor sit amet, conssadipscing elitr, sed diam nonumy eirmod
-                                            tempvidunt ut labore et dolore magna aliquyam erat,sed diam voluptua. At
-                                            vero eos et accusam justo duo dolores et ea rebum.gubergren no sea takimata
-                                            magna aliquyam eratma</p>
-                                    </div>
-                                    <div class="author-id">
-                                        <img src="<?= Yii::getAlias('@web') . '/public/images/author.png' ?>" alt="">
-
-                                        <div class="author-text">
-                                            <h4>Anthony DiPrizio</h4>
-
-                                            <h4>CEO</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <div class="social-share">
+                        <span class="social-share-title pull-left text-capitalize">
+                            
+                        </span>
+                        <ul class="text-center pull-right">
+                            <li><a class="s-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a class="s-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a class="s-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a class="s-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a class="s-instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>                
                 </aside>
             </div>
             <div class="col-md-4">
@@ -191,8 +135,9 @@
                         </div>
                         <div>
                             <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                            <span class="p-date">February 15, 2016</span>
+                            <span class="p-date">Februaasdf dsdafasdfds fasdf asdf sadf asdf safd sry 15,da sfasf dsaf sadf sdaf sdaf sdf asd 2016</span>
                         </div>
+                        
                     </div>
                 </aside>
             </div>

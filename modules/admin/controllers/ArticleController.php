@@ -4,8 +4,6 @@ namespace app\modules\admin\controllers;
 
 use Yii;
 use app\models\Article;
-use app\models\Category;
-use app\models\Tag;
 use app\models\ArticleSearch;
 use app\models\ImageUpload;
 use yii\helpers\ArrayHelper;
@@ -98,49 +96,6 @@ class ArticleController extends Controller
         return $this->render('image', ['model' => $model]);
     }
 
-    public function actionSetCategory($id)
-    {
-        $article = $this->findModel($id);
-        $selectedCategory = ($article->category != null) ? $article->category->id : null;
-        $categories = ArrayHelper::map(Category::find()->all(), 'id', 'title');
-
-        if(Yii::$app->request->isPost)
-        {
-            $c_id = Yii::$app->request->post('category');
-            if($article->saveCategory($c_id))
-            {
-                $this->redirect(['view', 'id'=>$article->id]);
-            }
-        }
-
-        return $this->render('category', [
-            'article' => $article,
-            'selectedCategory' => $selectedCategory, 
-            'categories' => $categories
-        ]);
-    }
-
-    public function actionSetTags($id)
-    {
-        $article = $this->findModel($id);
-        //var_dump($article->tags);die;
-        $selectedTags = $article->getSelectedTags();
-        $tags = ArrayHelper::map(Tag::find()->all(), 'id', 'title');
-
-        if(Yii::$app->request->isPost)
-        {
-            $tag_ids = Yii::$app->request->post('tags');
-            
-            $article->saveTags($tag_ids);
-            $this->redirect(['view', 'id'=>$article->id]);
-        }
-
-        
-        return $this->render('tags',[
-            'selectedTags' => $selectedTags,
-            'tags' => $tags
-        ]);       
-    }
 
     /**
      * Updates an existing Article model.
