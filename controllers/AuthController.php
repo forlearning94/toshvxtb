@@ -38,24 +38,6 @@ class AuthController extends Controller
         ]);
     }
 
-    public function actionSignup()
-    {
-        $model = new SignupForm();
-        
-        if(Yii::$app->request->isPost)
-        {
-            $model->load(Yii::$app->request->post());
-            if ($model->signup()) 
-            {
-                return $this->redirect(['auth/login']);
-            }
-
-        }
-        
-        return $this->render('signup', [
-            'model' => $model
-        ]);
-    }
 
     /**
      * Logout action.

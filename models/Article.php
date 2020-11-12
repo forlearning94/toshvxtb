@@ -59,7 +59,6 @@ class Article extends \yii\db\ActiveRecord
             'viewed' => 'Viewed',
             'user_id' => 'User ID',
             'status' => 'Status',
-            'category_id' => 'Category ID',
         ];
     }
 
@@ -92,51 +91,10 @@ class Article extends \yii\db\ActiveRecord
         return parent::beforeDelete();
     }
 
-    public function getCategory()
-    {
-        return $this->hasOne(Category::className(), ['id' => 'category_id']);
-    }
-
-    public function getTags()
-    {
-        return $this->hasMany(Tag::className(), ['id' => 'tag_id'])
-                    ->viaTable('article_tag', ['article_id' => 'id']);
-    }
-
-    public function getSelectedTags()
-    {
-        $selectedTags = $this->getTags()->select('id')->asArray()->all();
-        return ArrayHelper::getColumn($selectedTags, 'id');
-    }
-
-    public static function getArticlesByCategory($id)
-    {
-        return Article::find()->where(['category_id' => $id]);
-    }
-
-    public function saveTags($tag_ids)
-    {
-        if(is_array($tag_ids))
-        {
-            $this->clearCurrentTags();
-            foreach($tag_ids as $tag_id)
-            {
-                $tag = Tag::findOne($tag_id);
-                $this->link('tags', $tag);
-            }
-            
-        }
-    }
-
     public function saveArticle()
     {
         $this->user_id = Yii::$app->user->id;
         return $this->save();
-    }
-
-    public function clearCurrentTags()
-    {
-        ArticleTag::deleteAll(['article_id' => $this->id]);
     }
 
 
@@ -165,26 +123,6 @@ class Article extends \yii\db\ActiveRecord
     public static function getRecent()
     {
         return Article::find()->orderBy('date')->limit(4)->all();
-    }
-
-    public function saveCategory($c_id)
-    {   
-        $category = Category::findOne($c_id);
-        if($category != null)
-        {
-            $this->link('category', $category);
-            return true;
-        }    
-    }
-
-    public function getComments()
-    {
-        return $this->hasMany(Comment::className(), ['article_id' => 'id']);
-    }
-
-    public function getArticleComments()
-    {
-        return $this->getComments()->where(['status' => 1])->all();
     }
 
     public function getAuthor()

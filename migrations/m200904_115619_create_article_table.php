@@ -22,7 +22,6 @@ class m200904_115619_create_article_table extends Migration
             'viewed' => $this->integer(),
             'user_id' => $this->integer(),
             'status' => $this->integer(),
-            'category_id' => $this->integer(),
         ]);
     }
 

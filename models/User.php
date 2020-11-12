@@ -65,11 +65,6 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return $this->save(false);
     }
 
-    public function getComments()
-    {
-        return $this->hasMany(Comment::className(), ['user_id' => 'id']);
-    }
-
     public function getImage()
     {
         return $this->photo;

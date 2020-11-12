@@ -87,11 +87,7 @@ class SiteController extends Controller
 
         $popular = Article::getPopular();
         $recent = Article::getRecent();
-        $categories = Category::getAll(); 
 
-
-        $comments = $article->getArticleComments();
-        $commentForm = new CommentForm();
 
         $article->viewedCounter();
 
@@ -99,45 +95,7 @@ class SiteController extends Controller
         return $this->render('single', [
             'article' => $article,
             'popular' => $popular,
-            'recent' => $recent,
-            'categories' => $categories,
-            'comments' => $comments,
-            'commentForm' => $commentForm
-        ]);
-    }
-
-    public function actionComment($id)
-    {
-        $model = new CommentForm;
-
-        if(Yii::$app->request->isPost)
-        {
-            $model->load(Yii::$app->request->post());
-            if($model->saveComment($id))
-            {
-                Yii::$app->getSession()->setFlash('comment', 'Your comment will be added soon!');
-                return $this->redirect(['site/view', 'id' => $id]);
-            }
-        }
-    }
-
-    public function actionCategory($id)
-    {
-       
-        $popular = Article::getPopular();
-        $recent = Article::getRecent();
-        $categories = Category::getAll(); 
-
-        $data = Category::getArticlesByCategory($id);
-
-        
-
-        return $this->render('category', [
-            'articles' => $data['articles'],
-            'pagination' => $data['pagination'],
-            'popular' => $popular,
-            'recent' => $recent,
-            'categories' => $categories
+            'recent' => $recent
         ]);
     }
     
