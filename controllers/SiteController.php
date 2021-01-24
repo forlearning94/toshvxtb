@@ -64,6 +64,18 @@ class SiteController extends Controller
     public function actionIndex()
     {
 
+
+        // https://api.telegram.org/bot
+        // 1453691326:AAH1g-NUo3SFk7l_iar0bQk8pJ4AP1VNUHc
+        // /sendPhoto?chat_id=@vxtbtest&photo=https://storage.kun.uz/source/6/yhQ6zC_ZYfRfF4uv7R58SR0tiLcdsYkJ.jpg
+        // &caption=description%20written%20by
+
+
+        // $sLink .= "<a href='".$Row->link_url."'>".$Row->link_name."</a>";
+        // $URL = "https://api.telegram.org/bot".$Token."/sendMessage?chat_id=".$ChatID."&text=".$Text."&parse_mode=HTML&reply_markup=".json_encode($KB);
+
+
+        // https://api.telegram.org/bot1453691326:AAH1g-NUo3SFk7l_iar0bQk8pJ4AP1VNUHc/sendPhoto?chat_id=@vxtbtest&photo=https://storage.kun.uz/source/6/yhQ6zC_ZYfRfF4uv7R58SR0tiLcdsYkJ.jpg&caption=buasdubad%20u%20dkasduuasdasd%20asd%20asdassfdvdkjsabbasjdb%20asjhvdsjad%20avzasdan%20boshlanadi%0A%0A%3Ca%20href=%22https://t.me/toshkentvxtb%22%3EToshvil%20xtb%20kanali%3C/a%3E&parse_mode=HTML
         $data = Article::getAll(3);
 
         $popular = Article::getPopular();
