@@ -9,9 +9,9 @@
     use yii\bootstrap\Nav;
     use yii\bootstrap\NavBar;
     use yii\widgets\Breadcrumbs;
-    use app\assets\PublicAsset;
+    use app\assets\VxtbAsset;
 
-    PublicAsset::register($this);
+    VxtbAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -25,138 +25,198 @@
     <?php $this->head() ?>
 </head>
 <body>
-<?php $this->beginBody() ?>
+  <?php $this->beginBody() ?>
 
-<nav class="navbar main-menu navbar-default">
-    <div class="container">
-        <div class="menu-content">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="<?= Yii::getAlias('@web') ?>"><img src="<?= Yii::getAlias('@web') . '/public/images/logo.jpg'?>" alt=""></a>
-            </div>
-
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                <ul class="nav navbar-nav text-uppercase">
-                    <li><a data-toggle="" class="" href="<?= Yii::getAlias('@web') ?>">Home</a>
-                        
-                    </li>
-                    
+    <header class="header">
+        <div class="header-top">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-3 header-social">
+                <ul>
+                  <li>
+                    <a href="#">
+                      <img src="<?= Yii::getAlias('@web') . '/vxtb/images/soc/facebook.svg' ?>" alt="">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="<?= Yii::getAlias('@web') . '/vxtb/images/soc/instagram.svg' ?>" alt="">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="<?= Yii::getAlias('@web') . '/vxtb/images/soc/youtube.svg' ?>" alt="">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="<?= Yii::getAlias('@web') . '/vxtb/images/soc/telegram.svg' ?>" alt="">
+                    </a>
+                  </li>
                 </ul>
-                <div class="i_con">
-                    <ul class="nav navbar-nav text-uppercase">                        
-                        <?php if(Yii::$app->user->isGuest): ?>
-                            <li><a href="<?= Url::toRoute(['auth/login']) ?>">Login</a></li>
-                            <li><a href="<?= Url::toRoute(['auth/signup']) ?>">Register</a></li>
-                        <?php else: ?>
-                            <?= Html::beginForm(['/auth/logout'], 'post')
-                                . Html::submitButton(
-                                    'Logout (' . Yii::$app->user->identity->name . ')',
-                                    ['class' => 'btn btn-link logout', 'style' => "padding:20px 0 0 20px;"]
-                                )
-                                . Html::endForm() ?>
-                        <?php endif; ?>     
-                    </ul>
+              </div>
+              <div class="col-lg-5 header-email">
+                <span class="email">E-mail: </span><a href="mailto:toshkent_vxtb@xtv.uz">toshkent_vxtb@xtv.uz</a>
+                <span class="header-test">Sayt test rejimida ishlamoqda!</span>
+              </div>
+              <div class="col-lg-3">
+                <div class="header-lang">
+                  <a href="#">ЎЗБ &nbsp;</a> / &nbsp;
+                  <a href="#">O'ZB &nbsp;</a>
+                  <!-- <div class="header-oneId">
+                    <a href="https://id.gov.uz/cmn/LoginPage.do" target="_blank"> OneID orqali kirish</a>
+                  </div> -->
                 </div>
+              </div>
+              <!-- <div class="col-lg-1 header-eye">
+                <a href="#">
+                </a>
+              </div> -->
             </div>
-            <!-- /.navbar-collapse -->
-
-            <div class="show-search">
-                <form role="search" method="get" id="searchform" action="#">
-                    <div>
-                        <input type="text" placeholder="Search and hit enter..." name="s" id="s">
-                    </div>
+          </div>
+        </div>
+        <div class="header-middle">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="header-logo col-6">
+                <a  href="<?= Yii::getAlias('@web') ?>">
+                  <img src="<?= Yii::getAlias('@web') . '/vxtb/images/logo.png'?>" alt="">
+                  <div class="site-name">TOSHKENT VILOYATI </br> XALQ TA'LIMI BOSHQARMASI</div>
+                </a>
+              </div>
+              <div class="header-search col-4">
+                <form class="header-form">
+                  <input type="text" placeholder="Qidiruv">
+                  <button type="submit"></button>
                 </form>
+              </div>
+              <div class="header-phone col-2">
+                <div class="text">ISHONCH TELEFONI</div>
+                <a href="tel:+998712316571" class="number">(71) 231 65 71</a>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    <!-- /.container-fluid -->
-</nav>
-
-<?= $content ?>
-
-<!--footer start-->
-
-<footer class="footer-widget-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <aside class="footer-widget">
-                    <div class="about-img"><img src="<?= Yii::getAlias('@web') . '/public/images/logo2.png' ?>" alt="Kotha"></div>
-                    <div class="about-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-                        voluptua. At vero eos et accusam et justo duo dlores et ea rebum magna text ar koto din.
-                    </div>
-                    <div class="address">
-                        <h4 class="text-uppercase">contact Info</h4>
-
-                        <p> 239/2 NK Street, DC, USA</p>
-
-                        <p> Phone: +123 456 78900</p>
-
-                    </div>
-                </aside>
-            </div>
-
-            <div class="col-md-4">
-                <aside class="footer-widget">
-                    <h3 class="widget-title text-uppercase">Testimonials</h3>
-
-                    <div class="social-share">
-                        <span class="social-share-title pull-left text-capitalize">
-                            
-                        </span>
-                        <ul class="text-center pull-right">
-                            <li><a class="s-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a class="s-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a class="s-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a class="s-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a class="s-instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                    </div>                
-                </aside>
-            </div>
-            <div class="col-md-4">
-                <aside class="footer-widget">
-                    <h3 class="widget-title text-uppercase">Custom Category Post</h3>
-
-
-                    <div class="custom-post">
-                        <div>
-                            <a href="#"><img src="<?= Yii::getAlias('@web') . '/public/images/footer-img.png' ?>" alt=""></a>
-                        </div>
-                        <div>
-                            <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                            <span class="p-date">Februaasdf dsdafasdfds fasdf asdf sadf asdf safd sry 15,da sfasf dsaf sadf sdaf sdaf sdf asd 2016</span>
-                        </div>
-                        
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </div>
-    <div class="footer-copy">
-        <div class="container">
+        <div class="header-nav">
+          <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="text-center">&copy; 2015 <a href="#">Treasure PRO, </a> Built with <i
-                            class="fa fa-heart"></i> by <a href="#">Rahim</a>
-                    </div>
-                </div>
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link active" href="staff.html">RAHBARIYAT</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="news.html">YANGILIKLAR</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">BIZ BILAN BOG`LANING</a>
+                </li>
+              </ul>
             </div>
+          </div>
         </div>
-    </div>
-</footer>
+      </header>
 
-<?php $this->endBody() ?>
+
+
+      <?= $content ?>
+
+    <!--footer start-->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-12 footer__item">
+            <div class="footer__logo">
+              <img src="<?= Yii::getAlias('@web') . '/vxtb/images/logo.png'?>" alt="">
+              <span>Toshkent viloyati xalq ta`limi boshqarmasi</span>
+            </div>
+            <div class="footer__address">111503, Toshkent viloyati, O'rta Chirchiq tumani, Parkent trakt ko'chasi, 52-uy</div>
+            <div class="footer__contact">
+              <div class="phone">
+                <a href="tel:712410186">(71) 231-65-71</a>
+              </div>
+              <div class="email">
+                <a href="mailto:toshkent_vxtb@xtv.uz">toshkent_vxtb@xtv.uz</a>
+              </div>
+            </div>
+            <div class="footer__soc">
+              <a href="#">
+                <img src="<?= Yii::getAlias('@web') . '/vxtb/images/soc/facebook.svg'?>" alt=""></a>
+              <a href="#">
+                <img src="<?= Yii::getAlias('@web') . '/vxtb/images/soc/instagram.svg'?>" alt=""></a>
+              <a href="#">
+                <img src="<?= Yii::getAlias('@web') . '/vxtb/images/soc/telegram.svg'?>" alt=""></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-12 footer__item">
+            <div class="footer__title">Havolalar</div>
+            <div class="footer__nav row">
+              <div class="col-lg-6">
+                <a href="#">Ustoz ovozi</a>
+              </div>
+              <div class="col-lg-6">
+                <a href="#">Forum</a>
+              </div>
+              <div class="col-lg-6">
+                <a href="#">Maktablar haqida ma'lumot</a>
+              </div>
+              <div class="col-lg-6">
+                <a href="#">BOʻSh ISH OʻRINLARI</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-12 footer__item">
+            <div class="footer__title">Yangiliklar</div>
+            <div class="footer__news">
+              <div class="news__item">
+                <img src="<?= Yii::getAlias('@web') . '/vxtb/images/footer_news.jpg' ?>" alt="">
+                <div class="news__info">
+                  <div class="news__text">Xalqaro sertifikatga ega Navoiy shahar 4-maktab informatika 
+                    oʻqituvchisi “Java dasturlash tili»ni maktab oʻquvchilariga oʻqitmoqda</div>
+                  <div class="news__date">January 15, 2021</div>
+                </div>
+              </div>
+              <div class="news__item">
+                <img src="<?= Yii::getAlias('@web') . '/vxtb/images/footer_news.jpg' ?>" alt="">
+                <div class="news__info">
+                  <div class="news__text">Xalqaro sertifikatga ega Navoiy shahar 4-maktab informatika 
+                    oʻqituvchisi “Java dasturlash tili»ni maktab oʻquvchilariga oʻqitmoqda</div>
+                  <div class="news__date">January 15, 2021</div>
+                </div>
+              </div>
+              <div class="news__item">
+                <img src="<?= Yii::getAlias('@web') . '/vxtb/images/footer_news.jpg' ?>" alt="">
+                <div class="news__info">
+                  <div class="news__text">Xalqaro sertifikatga ega Navoiy shahar 4-maktab informatika 
+                    oʻqituvchisi “Java dasturlash tili»ni maktab oʻquvchilariga oʻqitmoqda</div>
+                  <div class="news__date">January 15, 2021</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-12 footer__item">
+            <div class="footer__title">Ish vaqti</div>
+            <div class="footer__work">
+              <div class="work-day">Du - Ju:</div>
+              <div class="work-time">9.00 - 18:00</div>
+            </div>
+            <div class="footer__work">
+              <div class="work-day">Tushlik :</div>
+              <div class="work-time">13:00 - 14:00</div>
+            </div>
+            <div class="footer__work">
+              <div class="work-day">Sh - Ya:</div>
+              <div class="work-time not-work">Yopiq</div>
+            </div>
+          </div>
+        </div>
+        <div class="row"></div>
+      </div>
+    </footer>
+    <a href="#" class="scrollTop">
+      <img src="<?= Yii::getAlias('@web') . '/vxtb/images/scrollTop.svg' ?>" alt="">
+    </a>
+
+  <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>

@@ -70,14 +70,36 @@ class SiteController extends Controller
         // /sendPhoto?chat_id=@vxtbtest&photo=https://storage.kun.uz/source/6/yhQ6zC_ZYfRfF4uv7R58SR0tiLcdsYkJ.jpg
         // &caption=description%20written%20by
 
-
         // $sLink .= "<a href='".$Row->link_url."'>".$Row->link_name."</a>";
         // $URL = "https://api.telegram.org/bot".$Token."/sendMessage?chat_id=".$ChatID."&text=".$Text."&parse_mode=HTML&reply_markup=".json_encode($KB);
 
+        // in url should be https://api.telegram.org/bot1453691326:AAH1g-NUo3SFk7l_iar0bQk8pJ4AP1VNUHc/sendPhoto?chat_id=@vxtbtest&photo=https://storage.kun.uz/source/6/yhQ6zC_ZYfRfF4uv7R58SR0tiLcdsYkJ.jpg&caption=buasdubad%20u%20dkasduuasdasd%20asd%20asdassfdvdkjsabbasjdb%20asjhvdsjad%20avzasdan%20boshlanadi%0A%0A%3Ca%20href=%22https://t.me/toshkentvxtb%22%3EToshvil%20xtb%20kanali%3C/a%3E&parse_mode=HTML
+        
+        //  <  %3C
+        //  =  %3D
+        //  >  %3E
+        //$photo = "https://storage.kun.uz/source/6/yhQ6zC_ZYfRfF4uv7R58SR0tiLcdsYkJ.jpg";
+        //$caption = "buasdubad%20u%20dkasduuasdasd%20asd%20asdassfdvdkjsabbasjdb%20asjhvdsjad%20avzasdan%20boshlanadi";
+        //$token = "1453691326:AAH1g-NUo3SFk7l_iar0bQk8pJ4AP1VNUHc";
+        //file_get_contents("https://api.telegram.org/bot1453691326:AAH1g-NUo3SFk7l_iar0bQk8pJ4AP1VNUHc/sendPhoto?chat_id=@vxtbtest&photo=".$photo."&caption=".$caption."%0A%0A%3Ca%20href=%22https://t.me/toshkentvxtb%22%3ETelegram%3C/a%3E | %0A%0A%3Ca%20href=%22https://t.me/toshkentvxtb%22%3ETelegram 2%3C/a%3E&parse_mode=HTML");
+        
 
-        // https://api.telegram.org/bot1453691326:AAH1g-NUo3SFk7l_iar0bQk8pJ4AP1VNUHc/sendPhoto?chat_id=@vxtbtest&photo=https://storage.kun.uz/source/6/yhQ6zC_ZYfRfF4uv7R58SR0tiLcdsYkJ.jpg&caption=buasdubad%20u%20dkasduuasdasd%20asd%20asdassfdvdkjsabbasjdb%20asjhvdsjad%20avzasdan%20boshlanadi%0A%0A%3Ca%20href=%22https://t.me/toshkentvxtb%22%3EToshvil%20xtb%20kanali%3C/a%3E&parse_mode=HTML
+
+
+        $lastArticle = Article::getLastOne();
+        $photo = "toshvxtb.uz" .$lastArticle->getImage();
+        //var_dump($lastArticle->title);die;
+        $caption = $lastArticle->title;
+
+        //Article::publishToTelegram($photo, $caption);
+
+        //var_dump("article has been published successfully");die;
+        //var_dump((new \yii\web\Request)->getBaseUrl());die;
+        
+
+
         $data = Article::getAll(3);
-
+        
         $popular = Article::getPopular();
         $recent = Article::getRecent();
 

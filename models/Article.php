@@ -96,7 +96,6 @@ class Article extends \yii\db\ActiveRecord
         return $this->save();
     }
 
-
     public static function getAll($pageSize = 5)
     {
         $query = Article::find();
@@ -124,6 +123,10 @@ class Article extends \yii\db\ActiveRecord
         return Article::find()->orderBy('date')->limit(4)->all();
     }
 
+    public static function getLastOne()
+    {
+        return Article::find()->orderBy('id DESC')->one(); //orderBy('id DESC')
+    }
     public function getAuthor()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
@@ -133,6 +136,20 @@ class Article extends \yii\db\ActiveRecord
     {
         $this->viewed += 1;
         return $this->save(false);
+    }
+
+    public static function publishToTelegram($photo, $caption)
+    {
+        file_get_contents("https://api.telegram.org/bot1453691326:AAH1g-NUo3SFk7l_iar0bQk8pJ4AP1VNUHc/sendPhoto?chat_id=@vxtbtest&photo=".$photo."&caption=".$caption."%0A%0A%3Ca%20href=%22https://t.me/toshkentvxtb%22%3ETelegram%3C/a%3E | %0A%0A%3Ca%20href=%22https://t.me/toshkentvxtb%22%3ETelegram 2%3C/a%3E&parse_mode=HTML");
     }    
 
+    public static function publishToFacebook($photo, $caption)
+    {
+        //
+    } 
+
+    public static function publishToInstagram($photo, $caption)
+    {
+        //
+    } 
 }
